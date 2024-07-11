@@ -60,17 +60,22 @@ secure_file_transfer/
 ### Home Page
 ![Home Page](static/images/img1.png)
 
-### Login Page
+### Registration Page
 ![Login Page](static/images/img2.png)
 
-### Registration Page
+### Login Page
 ![Registration Page](static/images/img3.png)
 
 ### Upload Page
 ![Upload Page](static/images/img4.png)
+![Upload Page](static/images/img5.png)
+![Upload Page](static/images/img7.png)
+![Upload Page](static/images/img8.png)
 
 ### Download Page
-![Download Page](static/images/img5.png)
+![Download Page](static/images/img9.png)
+![Upload Page](static/images/img10.png)
+![Upload Page](static/images/11.png)
 
 ## Getting Started
 
@@ -113,7 +118,8 @@ secure_file_transfer/
 1. **Run the Flask application**:
 
    ```bash
-   python -m secure_file_transfer.app
+   cd secure_file_transfer
+   python app.py
    ```
 
 2. **Access the application**:
