@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Download File{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Download File</div>
+            <div class="card-body">
+                <form id="download-form" method="POST">
+                    <div class="form-group">
+                        <label for="file_name">File Name</label>
+                        <input type="text" class="form-control" id="file_name" name="file_name" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Download</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('download-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    let formData = new FormData(this);
+    let token = localStorage.getItem('token');
+    fetch('/download', {
+        method: 'POST',
+        headers: {
+            'x-access-token': token
+        },
+        body: formData
+    }).then(response => {
+        if (response.status === 200) {
+            response.blob().then(blob => {
+                let url = window.URL.createObjectURL(blob);
+                let a = document.createElement('a');
+                a.href = url;
+                a.download = formData.get('file_name');
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+            });
+        } else {
+            response.json().then(data => alert(data.message));
+        }
+    });
+});
+</script>
+{% endblock %}

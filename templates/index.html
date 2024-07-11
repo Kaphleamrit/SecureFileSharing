@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to Secure File Sharing</h1>
+    <p class="lead">A secure platform for sharing files with encryption and access control.</p>
+    <hr class="my-4">
+    <p>Register or login to start sharing files securely.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button">Register</a>
+    <a class="btn btn-secondary btn-lg" href="{{ url_for('login') }}" role="button">Login</a>
+</div>
+{% endblock %}
