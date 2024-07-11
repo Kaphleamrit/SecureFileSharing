@@ -1,16 +1,16 @@
-from flask import jsonify, request
+from flask import jsonify, session, redirect, url_for
 import jwt
 import datetime
 from functools import wraps
 
-users = {}  # In-memory user store, replace with a database in production
-roles = {}  # In-memory roles store
+users = {}
+roles = {}
 
 def register_user(username, password):
     if username in users:
         return jsonify({"message": "User already exists"}), 400
-    users[username] = password  # Hash passwords in a real application
-    roles[username] = 'admin'  # Assign default role as 'admin'; adjust as needed
+    users[username] = password
+    roles[username] = 'admin'
     return jsonify({"message": "User registered successfully"}), 201
 
 def login_user(username, password):
@@ -20,18 +20,18 @@ def login_user(username, password):
         'user': username,
         'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)
     }, 'your_secret_key')
-    return jsonify({'token': token})
+    return jsonify({'token': token}), 200
 
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
-        token = request.headers.get('x-access-token')
+        token = session.get('token')
         if not token:
-            return jsonify({'message': 'Token is missing!'}), 403
+            return redirect(url_for('login'))
         try:
             data = jwt.decode(token, 'your_secret_key', algorithms=["HS256"])
             current_user = data['user']
         except:
-            return jsonify({'message': 'Token is invalid!'}), 403
+            return redirect(url_for('login'))
         return f(current_user, *args, **kwargs)
     return decorated

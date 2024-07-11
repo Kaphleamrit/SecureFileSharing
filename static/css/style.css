@@ -1,36 +1,63 @@
 body {
-    background-color: #121212;
-    color: #fff;
+    background: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
 }
 
 .navbar {
-    background: linear-gradient(45deg, #6b0f1a, #b91372);
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #333;
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-header {
-    background: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
-.form-control {
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
+.btn-primary, .btn-secondary {
+    border-radius: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 15px rgba(0, 86, 179, 0.4);
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.jumbotron {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
     color: #fff;
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease;
 }
 
-.form-control:focus {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    box-shadow: none;
+.jumbotron .btn {
+    margin-top: 20px;
 }
 
-.btn-primary {
-    background: linear-gradient(45deg, #6b0f1a, #b91372);
-    border: none;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

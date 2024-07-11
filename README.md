@@ -33,6 +33,20 @@ secure_file_transfer/
 ├── static/
 │   ├── css/
 │   │   └── style.css
+│   ├── js/
+│   │   └── script.js
+│   ├── images/
+│   │   ├── img1.png
+│   │   ├── img2.png
+│   │   ├── img3.png
+│   │   ├── img4.png
+│   │   ├── img5.png
+│   │   ├── img6.png
+│   │   ├── img7.png
+│   │   ├── img8.png
+│   │   ├── img9.png
+│   │   ├── img10.png
+│   │   └── img11.png
 └── templates/
     ├── base.html
     ├── login.html
@@ -40,6 +54,23 @@ secure_file_transfer/
     ├── upload.html
     └── download.html
 ```
+
+## Screenshots
+
+### Home Page
+![Home Page](static/images/img1.png)
+
+### Login Page
+![Login Page](static/images/img2.png)
+
+### Registration Page
+![Registration Page](static/images/img3.png)
+
+### Upload Page
+![Upload Page](static/images/img4.png)
+
+### Download Page
+![Download Page](static/images/img5.png)
 
 ## Getting Started
 
