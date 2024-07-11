@@ -75,7 +75,7 @@ secure_file_transfer/
 ### Download Page
 ![Download Page](static/images/img9.png)
 ![Upload Page](static/images/img10.png)
-![Upload Page](static/images/11.png)
+![Upload Page](static/images/img11.png)
 
 ## Getting Started
 
